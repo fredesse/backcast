@@ -2,7 +2,7 @@ var VideoListView = Backbone.View.extend({
 
 
   render: function() {
-    console.log('videoList render ran');
+    // console.log('videoList render ran');
 
     this.$el.children().detach();
     this.$el.html(this.template());

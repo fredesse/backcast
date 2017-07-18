@@ -46,31 +46,46 @@
     <div id="mocha"></div>
 
     <script>
-    // describe('VideoListView', function() {
-      var view, collection;
+
+      // {
+      //   etag: 'L332gQTY',
+      //   id: {
+      //     videoId: '000001'
+      //   },
+      //   snippet: {
+      //     title: 'Cute cat video',
+      //     description: 'The best cat video on the internet!',
+      //     thumbnails: {
+      //       default: {
+      //         url: 'http://www.fndvisions.org/img/cutecat.jpg',
+      //       }
+      //     }
+      //   }
+      // }
+    // describe('VideoListEntryView', function() {
+      var model, view;
 
       // beforeEach(function() {
-        // sinon.spy(VideoListView.prototype, 'render');
-        // sinon.spy(VideoListEntryView.prototype, 'render');
-        collection = new Videos(fakeVideoData);
-        view = new VideoListView({ collection: collection });
+        model = new Video(fakeVideoData[0]);
+        // sinon.spy(model, 'select');
+
+        view = new VideoListEntryView({ model: model });
+        view.template = _.template('<div class="video-list-entry-title"><%= snippet.title %></div>');
+        view.render();  // re-render with test template
       // });
 
-      // afterEach(function() {
-        // VideoListView.prototype.render.restore();
-        // VideoListEntryView.prototype.render.restore();
+
+
+
+      // it('should render a video\'s content', function() {
+        // expect(view.el).to.match(new RegExp(model.attributes.title));
       // });
 
-    //   it('should render five `VideoListEntry` when given five videos', function() {
-        // view.render(); // fake video data contains 5 entries
-    //     expect(VideoListEntryView.prototype.render).to.have.callCount(5);
-    //   });
-    //
-    //   it('should re-render when video collection updates', function() {
-    //     collection.trigger('sync');
-    //     expect(view.render).to.have.been.called;
-    //   });
-    //
+      // it('should call select on the model when the title is clicked', function() {
+        // view.$('.video-list-entry-title').click();
+        // expect(model.select).to.have.been.called;
+      // });
+
     // });
     </script>
   </body>
